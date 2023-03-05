@@ -2,46 +2,38 @@
 const WRONG_INPUT_MESSAGE = "Неверный ввод";
 
 function isNonNegativeNumber(side) {
-    return !isNaN(side) && side >= 0
+    return !isNaN(side) && side >= 0;
+}
+
+function calculateShapeArea (element, sideA, sideB, areaFunc) {
+            element.textContent = isNonNegativeNumber(sideA) && isNonNegativeNumber(sideB)?  
+                    areaFunc(sideA, sideB).toFixed(2): 
+                    WRONG_INPUT_MESSAGE;
 }
 
 function showResultInDomKvadrat(){
+    const squareAreaElem = document.getElementById("ploschadKvadrata");
     const squareSide = document.getElementById("dlinaStoroniKvadrata").value;
-
-    document.getElementById("ploschadKvadrata")
-            .textContent = isNonNegativeNumber(squareSide)
-            ? multiplyTwoValues(squareSide, squareSide).toFixed(2)
-            : WRONG_INPUT_MESSAGE;
+    calculateShapeArea(squareAreaElem, squareSide, squareSide, calculateSquareArea);
 }
 
 function showResultInDomPriamougolnika() {
+    const rectangularAreaElem = document.getElementById("ploschadPriamougolnika");
     const rectangularSideA = document.getElementById("pervayaStoronaPriamougolnika").value;
     const rectangularSideB = document.getElementById("drugayaStoronaPriamougolnika").value;
-
-    document.getElementById("ploschadPriamougolnika")
-            .textContent = isNonNegativeNumber(rectangularSideA) && isNonNegativeNumber(rectangularSideB)
-            ? multiplyTwoValues(rectangularSideA, rectangularSideB).toFixed(2)
-            : WRONG_INPUT_MESSAGE;
-
+    calculateShapeArea(rectangularAreaElem, rectangularSideA, rectangularSideB, calculateRectangularArea);
 }
 
 function showResultInDomParalelograma() {
+    const parallelogramAreaElem = document.getElementById("ploschadParalelograma");
     const parallelogramSide = document.getElementById("dlinaStoronyParalelograma").value;
     const parallelogramHeight = document.getElementById("dlinaVisotyParalelograma").value;
-
-    document.getElementById("ploschadParalelograma")
-            .textContent = isNonNegativeNumber(parallelogramSide) && isNonNegativeNumber(parallelogramHeight)
-            ? multiplyTwoValues(parallelogramSide, parallelogramHeight).toFixed(2)
-            : WRONG_INPUT_MESSAGE;
+    calculateShapeArea(parallelogramAreaElem, parallelogramSide, parallelogramHeight, calculateParallelogramArea);
 }
 
 function showResultInDomRomba() {
+    const diamondAreaElem = document.getElementById("ploschadRomba");
     const diamondSide = document.getElementById("dlinaStoronyRomba").value;
     const diamondHeight = document.getElementById("dlinaVisotyRomba").value;
-
-    document.getElementById("ploschadRomba")
-            .textContent = isNonNegativeNumber(diamondSide) && isNonNegativeNumber(diamondHeight)
-            ? multiplyTwoValues(diamondSide, diamondHeight).toFixed(2)
-            : WRONG_INPUT_MESSAGE;
-
+    calculateShapeArea(diamondAreaElem, diamondSide, diamondHeight, calculateDiamondArea);
 }
