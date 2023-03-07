@@ -1,22 +1,19 @@
-function multiplyTwoValues(firstValue, secondValue){
-    return firstValue * secondValue;
+function multiplyTwoSides(sideA, sideB){
+    return sideA * sideB;
 }
 
-
-/*
-Intentionally commented functions
-Instead of 3 or 4 functions decided to create 1 which could be a good practice
-to follow DRY principle and not duplicate the similar calculations.
-
-function squareArea (a){
-    return a * a;
+function calculateSquareArea (side){
+    return multiplyTwoSides(side, side);
 }
 
-function rectangularArea(a, b){
-    return a * b;
+function calculateRectangularArea(sideA, sideB){
+    return multiplyTwoSides(sideA, sideB);
 }
 
-function parallelogramOrDiamondArea(a, h){
-    return a * h;
+function calculateParallelogramArea(sideA, height){
+    return multiplyTwoSides(sideA, height);
 } 
-*/
+
+function calculateDiamondArea(sideA, height){
+    return multiplyTwoSides(sideA, height);
+}
